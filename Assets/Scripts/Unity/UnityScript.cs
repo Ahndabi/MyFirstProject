@@ -65,9 +65,9 @@ public class UnityScript : MonoBehaviour    // 반드시MonoBehaviour를 상속 받아야
 	[Space(30)]
 
 	[Header("Unity Attribute")]
-	[SerializeField]	 // private지만 인스펙터에서 보이게 함
+	[SerializeField]	 // private지만 인스펙터에서 보이게 함 (소스 상에서 외부에선 접근 불가)
 	private int privateValue;
-	[HideInInspector]	 // public이지만 인스펙터에서 안 보이게 함
+	[HideInInspector]	 // public이지만 인스펙터에서 안 보이게 함 (소스 상에서 외부에선 접근 가능)
 	public int publicValue;
 
 	[Range(0, 10)]		 // 범위 지정
