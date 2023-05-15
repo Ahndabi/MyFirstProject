@@ -21,6 +21,7 @@ public class UnityInput : MonoBehaviour
 	// <Device>
 	// 특정한 장치를 기준으로 입력 감지
 	// 특정한 장치의 입력을 감지하기 때문에 여러 플랫폼에 대응이 어려움
+	//********* 이거 쓰지말래! 이거는 모바일용, 조이스틱용, 마우스용,, 다 따로 만들어야 한대!!!!*********
 	private void InputByDevice()
 	{
 		// 키보드 입력.		GetKey는 키보드이구 bool 형임
@@ -41,6 +42,7 @@ public class UnityInput : MonoBehaviour
 	}
 
 
+	//******************** 여기부터 사용해도 된댕**********************
 	// <InputManager>
 	// 여러 장치의 입력을 입력매니저에 이름과 입력을 정의
 	// 입력매니저의 이름으로 정의한 입력의 변경사항을 확인
@@ -92,3 +94,5 @@ public class UnityInput : MonoBehaviour
 		bool isPress = value.isPressed;
 	}
 }
+
+// 유니티 새 프로젝트 만들기에서 코어 - Third Person 이거 좋대! 3D의 이동 구현이 잘 되어 있대

@@ -58,6 +58,7 @@ public class UnityBasic : MonoBehaviour
 		FindObjectOfType<AudioSource>();	// 씬 내의 컴포넌트 탐색
 		FindObjectsOfType<AudioSource>();   // 씬 내의 모든 컴포넌트 탐색
 											// 매 프레임마다 찾는 경우 사용하는 것을 권장X. 한 번 찾아놓고 쭉--이걸 차라리!!
+		// Find 함수는 좀 느려서, 처음 게임 실행하자마자 하거나, 인스펙터에서 붙이거나 하는 것을 더 권장
 
 		// <컴포넌트 추가>
 		// Rigidbody rigid = new Rigidbody();
