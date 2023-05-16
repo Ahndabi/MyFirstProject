@@ -61,6 +61,6 @@ public class UnityCoroutine : MonoBehaviour
 	IEnumerator CoRoutineWait()
 	{
 		yield return new WaitForSeconds(1);     // n초간 시간지연
-		yield return null;                      // 시간지연 없음
+		yield return null;                      // 시간지연 없음 (1 프레임)
 	}
 }

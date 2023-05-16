@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,6 +11,8 @@ public class _Player : MonoBehaviour
 	[SerializeField] GameObject bulletPrefab;	// 총알 프리팹
 	[SerializeField] Transform bulletPoint;     // 총구 위치
 	[SerializeField] float bulletRepeat;		// 총알 반복하는 시간
+	[SerializeField] AudioSource bulletAudio;   // 총 쏠 때 나오는 소리
+	[SerializeField] CinemachineVirtualCamera CM2;	// 두 번째 카메라
 	Rigidbody rb;
 
 	private void Awake()
@@ -19,6 +22,7 @@ public class _Player : MonoBehaviour
 
 	void OnFire(InputValue value)
 	{
+		bulletAudio.Play();
 		Instantiate(bulletPrefab, bulletPoint.position, bulletPoint.rotation);
 		// 총알 프리팹이 총구 위치에서 총구가 바라보는 방향으로 생성된다.
 	}
@@ -46,4 +50,16 @@ public class _Player : MonoBehaviour
 			StopCoroutine(bulletRoutine);		// 코루틴을 멈춘다.
 	}
 
+
+	private void Update()
+	{
+		if (Input.GetKey(KeyCode.LeftShift))    // 왼쪽 쉬프트 키 누르면
+		{
+			CM2.Priority = 8;					// 두 번째 카메라의 우선순위가 8로 바뀐다.
+		}
+		else if(Input.GetKeyUp(KeyCode.RightShift))		// 떼면,
+		{
+			CM2.Priority = 11;					// 11로 바뀐다.
+		}
+	}
 }
