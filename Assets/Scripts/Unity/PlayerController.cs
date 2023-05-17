@@ -7,10 +7,12 @@ public class PlayerController: MonoBehaviour
 {
 	Rigidbody rb;
 	Vector3 moveDir;
+	[SerializeField] Animator animator;
 
 	[SerializeField] float movePower;
 	[SerializeField] float jumpPower;
 	[SerializeField] float rotatePower;
+	
 
 	[Header("Shooter")]
 	[SerializeField] GameObject bulletPrefabs;
@@ -21,11 +23,12 @@ public class PlayerController: MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
+		animator = GetComponent<Animator>();
 	}
 
 	private void Update()
 	{
-		Move();
+		// Move();
 		//Rotate();
 		//LookAt();
 	}
@@ -87,9 +90,10 @@ public class PlayerController: MonoBehaviour
 	void OnFire(InputValue value)	// 스페이스바를 누르면 반응할 함수임
 	{
 		Instantiate(bulletPrefabs, bulletPoint.position, bulletPoint.rotation);
+		animator.SetTrigger("Fire");	// "" 안에는 파라메터 이름
 	}
 
-	
+
 	Coroutine bulletRoutine;    // 총알을 생성하는 루틴
 	IEnumerator BulletMakeRoutine()
 	{
