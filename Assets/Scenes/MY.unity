@@ -177,6 +177,7 @@ MonoBehaviour:
   bullet: {fileID: 6128902646355531874, guid: 99d484720db1c0343ae05c6a57e59a65, type: 3}
   bulletPoint: {fileID: 228091082}
   animator: {fileID: 113018367}
+  moveSpeed: 20
 --- !u!114 &113018366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1716,6 +1717,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   bulletPoint: {fileID: 0}
   animator: {fileID: 0}
+  moveSpeed: 0
 --- !u!1 &2101155877
 GameObject:
   m_ObjectHideFlags: 3

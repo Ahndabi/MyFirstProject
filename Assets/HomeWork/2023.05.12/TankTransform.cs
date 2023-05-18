@@ -22,8 +22,8 @@ public class TankTransform : MonoBehaviour
 
 	private void Update()
 	{
-		Move();
-		Rotate();
+		// Move();
+		// Rotate();
 	}
 
 	void Rotate()
