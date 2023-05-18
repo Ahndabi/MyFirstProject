@@ -28,20 +28,16 @@ public class PlayerController: MonoBehaviour
 
 	private void Update()
 	{
-		// Move();
+		Move();
 		//Rotate();
 		//LookAt();
 	}
 
-	public void Jump()
-	{
-		rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
-	}
 
 	public void Move()
 	{
 		// 1.
-		rb.AddForce(moveDir * movePower * Time.deltaTime, ForceMode.Force);
+		rb.AddForce(moveDir * movePower, ForceMode.Force);		// time.deltatime 을 넣으면 안움지겨,,,왜?
 		// ForceMode.Force = 지속적으로 힘을 가함.	Impulse = 퍽!하고 순간적인 힘
 
 		// 2.
@@ -85,14 +81,16 @@ public class PlayerController: MonoBehaviour
 		Jump();  
 	}
 
-
+	public void Jump()
+	{
+		rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+	}
 
 	void OnFire(InputValue value)	// 스페이스바를 누르면 반응할 함수임
 	{
 		Instantiate(bulletPrefabs, bulletPoint.position, bulletPoint.rotation);
 		animator.SetTrigger("Fire");	// "" 안에는 파라메터 이름
 	}
-
 
 	Coroutine bulletRoutine;    // 총알을 생성하는 루틴
 	IEnumerator BulletMakeRoutine()
